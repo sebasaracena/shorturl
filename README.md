@@ -264,7 +264,7 @@ Estas validaciones son esenciales para:
 ---
 
 ### Observacion ###
-Estas reglas se establecen en el dominio y son llamadas en la capa de infraestructura en el adaptador. Si alguna de estas funciones alcanza su límite, no se permite el uso del ShortURL correspondiente.
+Estas reglas se definen en el dominio y se invocan desde la capa de infraestructura a través del adaptador. Si alguna de estas funciones alcanza su límite, el uso del ShortURL correspondiente no está permitido el sistema arrojara un mensaje de error.
 
    
 
