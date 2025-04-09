@@ -41,10 +41,29 @@ En este proyecto, la Arquitectura Hexagonal asegura que la lógica de negocio re
     docker-compose up --build
     ```
 3. Accede a la aplicación en tu navegador en `http://localhost:3000`.
- 
 ## Endpoints - ShortURL
 
-### 1. Crear un ShortURL
+### 1. Poblar automáticamente la colección DTE
+
+El archivo `docker-compose.yml` incluye una configuración que permite inicializar automáticamente la colección `dte` en MongoDB al levantar los servicios. Esto se realiza mediante el archivo `init-dte.js`, ubicado en la ruta `./src/config/data/init.dte.js:/docker-entrypoint-initdb.d/init-dte.js:ro`.
+
+#### ¿Cómo funciona?
+
+- Al iniciar los contenedores con Docker Compose, el archivo `init-dte.js` se ejecuta automáticamente como parte del proceso de inicialización de MongoDB.
+- Este script inserta datos iniciales en la colección `dte`, asegurando que la base de datos tenga información disponible desde el inicio.
+
+#### Relación con los Endpoints
+
+Puedes verificar los datos iniciales insertados utilizando el endpoint [Obtener lista de DTEs generados](#4-obtener-lista-de-dtes-generados). Este endpoint te permitirá consultar todos los DTEs disponibles en la colección.
+
+#### Beneficios
+
+- **Ahorro de tiempo:** No es necesario insertar manualmente los datos iniciales.
+- **Consistencia:** Garantiza que la colección `dte` tenga un conjunto de datos predefinido para pruebas o desarrollo.
+
+Para más detalles sobre cómo consultar los DTEs generados, revisa el endpoint mencionado anteriormente.
+
+### 2. Crear un ShortURL
 **Descripción:** Este endpoint permite crear una URL acortada.
 
 - **Método:** POST  
@@ -71,7 +90,7 @@ En este proyecto, la Arquitectura Hexagonal asegura que la lógica de negocio re
     }
     ```
 
-### 2. Redirigir al URL original
+### 3. Redirigir al URL original
 **Descripción:** Este endpoint toma el dato guardado del shortUrl y este registra cuantas veces se uso, tambien si este encuentra que la fecha esta caducada arroja un error.
 
 - **Método:** GET  
@@ -94,7 +113,7 @@ En este proyecto, la Arquitectura Hexagonal asegura que la lógica de negocio re
     }
     ```
 
-### 3. Obtener Lista de un ShortURL generados
+### 4. Obtener Lista de un ShortURL generados
 **Descripción:** Este endpoint proporciona la lista ShortURL generados.
 
 - **Método:** GET  
