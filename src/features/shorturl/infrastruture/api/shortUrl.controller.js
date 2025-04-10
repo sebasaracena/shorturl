@@ -14,7 +14,7 @@ class ShortURlController{
             }
     
             const shortUrl = await this.shortUrlUseCase.createShortUrl(newShorturl);
-            res.status(201).json(shortUrl.shortUrlCode);
+            res.status(201).json({shortUrlCode:shortUrl.shortUrlCode});
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
