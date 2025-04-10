@@ -80,13 +80,6 @@ Para más detalles sobre cómo consultar los DTEs generados, revisa el endpoint 
     ```json
    {
 	"shortUrlCode": "http://short.url/_tow8NE_",
-	"dteId": "DTE-2025-04-08-002",
-	"originalUrl": "http://localhost:3000/api/dte/get?dteId=DTE-2025-04-08-002",
-	"expirationDate": "2025-12-31T00:00:00.000Z",
-	"maxUses": 2,
-	"accessCount": 0,
-	"_id": "67f5dca67f06dc79ff69de26",
-	"__v": 0
     }
     ```
 

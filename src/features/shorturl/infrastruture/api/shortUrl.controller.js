@@ -14,7 +14,7 @@ class ShortURlController{
             }
     
             const shortUrl = await this.shortUrlUseCase.createShortUrl(newShorturl);
-            res.status(201).json(shortUrl);
+            res.status(201).json(shortUrl.shortUrlCode);
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
@@ -49,7 +49,9 @@ class ShortURlController{
                 return res.status(404).json({ message: 'Short URL not found' });
             }
             const updatedShortUrl = await this.shortUrlUseCase.useShortUrl(shortUrl);
-            res.status(200).json(updatedShortUrl);
+            //res.status(200).json(updatedShortUrl);
+            res.redirect(updatedShortUrl.originalUrl);
+            
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
