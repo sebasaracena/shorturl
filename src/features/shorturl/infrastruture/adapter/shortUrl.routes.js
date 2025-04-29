@@ -1,5 +1,5 @@
 const ShortUrlRepository = require('../repository/shortUrl.repository');
-const ShortUrlRepositoryImpl = require('../adapter/shortUrl.repository.impl');
+const ShortUrlRepositoryImpl = require('./shortUrl.repository.impl');
 const ShortUrlUseCase = require('../../application/shortUrl.use_case');
 const ShortUrlController = require('../api/shortUrl.controller');
 //---dependencias de los feature dte ------//

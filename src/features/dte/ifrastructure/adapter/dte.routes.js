@@ -1,7 +1,7 @@
 const DTERepository= require('../repository/DTE.repository');
-const DTERepositoryImpl = require('../adapter/DTE.repository.impl');
-const DTEUseCase = require('../../application/dte.use_case');
-const DTEController = require('./dte.controller');
+const DTERepositoryImpl = require('./dte.repository.impl');
+const DTEUseCase = require('../../application/DTE.use_case');
+const DTEController = require('../api/dte.controller');
 const express = require('express');
 
  module.exports = (conn) => {
